@@ -20,13 +20,15 @@ void Zadanie3_1(){
     if(!plik.is_open()){
         cerr << "Nie mozna otworzyc pliku"<< endl;
     }
+    ofstream wynik("wynik3_1.txt");
     string linia ;
     while(plik >> linia){
         if(czy_palindrom(linia)){
-            cout << linia <<endl;
+            wynik << linia <<endl;
         }
     }
     plik.close();
+    wynik.close();
 }
 int main() {
     Zadanie3_1();
