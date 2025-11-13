@@ -1,0 +1,24 @@
+name: Autograding
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+# uprawnienia dla całego workflow
+permissions:
+  contents: read
+  checks: write
+  actions: read
+
+jobs:
+  autograding:
+    runs-on: ubuntu-latest
+    # (możesz też przenieść permissions na poziom joba)
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Uruchom autograding
+        uses: education/autograding@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
