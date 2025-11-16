@@ -54,6 +54,8 @@ void Zadanie2_2(){
     int liczba_wierszy = wiersze.size();
     int licznik_kwadratow = 0;
 
+    string odp = "";
+
     for(int i = 1; i < liczba_wierszy - 1; i++){
         int dlugosc = wiersze[i].length();
         for(int j = 1; j < dlugosc - 1; j++){
@@ -72,12 +74,15 @@ void Zadanie2_2(){
                 licznik_kwadratow++;
                 cout << i+1 << " " << j+1 << endl;
                 wynik << i+1 << " " << j+1 << endl;
+                odp += to_string(i+1) + " " + to_string(j+1) + " ";
             }
         }
     }
 
     cout << "Liczba kwadratow: " << licznik_kwadratow << endl;
-    wynik << "Liczba kwadratow: " << licznik_kwadratow << endl;
+    odp = to_string(licznik_kwadratow) + " " + odp;
+
+    wynik << odp;
 
     wynik.close();
 }
