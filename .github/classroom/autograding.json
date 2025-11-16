@@ -1,0 +1,46 @@
+{
+  "tests": [
+    {
+      "name": "Sprawdź wynik2_1.txt",
+      "run": "bash tests/compare_files.sh wynik2_1.txt",
+      "timeout": 10,
+      "points": 20
+    },
+    {
+      "name": "Sprawdź wynik2_2.txt",
+      "run": "bash tests/compare_files.sh wynik2_2.txt",
+      "timeout": 10,
+      "points": 40
+    },
+    {
+      "name": "Sprawdź wynik2_3.txt",
+      "run": "bash tests/compare_files.sh wynik2_3.txt",
+      "timeout": 10,
+      "points": 20
+    },
+    {
+      "name": "Sprawdź wynik2_3.txt",
+      "run": "bash tests/compare_files.sh wynik2_4.txt",
+      "timeout": 10,
+      "points": 30
+    },
+    {
+      "name": "Sprawdź wynik3_1.txt",
+      "run": "bash tests/compare_files.sh wynik3_1.txt",
+      "timeout": 10,
+      "points": 20
+    },
+    {
+      "name": "Sprawdź wynik3_2_a.txt",
+      "run": "bash tests/compare_files.sh wynik3_2_a.txt",
+      "timeout": 10,
+      "points": 20
+    },
+    {
+      "name": "Sprawdź wynik3__2b.txt",
+      "run": "bash tests/compare_files.sh wynik3_2_b.txt",
+      "timeout": 10,
+      "points": 20
+    }
+  ]
+}
