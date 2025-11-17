@@ -84,7 +84,7 @@ void Zadanie2_2(){
     wynik.close();
 }
 
-// mnozy decimal (string, least significant digit at end) przez 3 i dodaje add (0..2)
+
 void mul3_add(string &dec, int add) {
     int carry = add;
     for (int i = (int)dec.size() - 1; i >= 0; --i) {
@@ -100,15 +100,14 @@ void mul3_add(string &dec, int add) {
     }
 }
 
-// zwraca true gdy a < b (obie reprezentowane jako normalne napisy dziesiętne bez wiodących zer,
-// ale dopuszczamy "0" jako jedyny przypadek z zerami)
+
 bool decimal_less(const string &a, const string &b) {
     if (a.size() != b.size()) return a.size() < b.size();
     return a < b;
 }
 
 int Zadanie2_3() {
-    const string inputFile = "symbole.txt";   // plik wejściowy
+    const string inputFile = "symbole.txt";   
     const string outputFile = "wynik2_3.txt";
 
     ifstream fin(inputFile);
@@ -127,7 +126,7 @@ int Zadanie2_3() {
     string bestLine = "";
 
     while (getline(fin, line)) {
-        // pomijamy ewentualne puste linie
+        
         if (line.empty()) continue;
 
         string dec = "0";
@@ -139,7 +138,7 @@ int Zadanie2_3() {
             mul3_add(dec, digit);
         }
 
-        // usuniecie wiodacych zer
+        
         size_t firstNonZero = dec.find_first_not_of('0');
         if (firstNonZero == string::npos) dec = "0";
         else dec = dec.substr(firstNonZero);
@@ -150,7 +149,7 @@ int Zadanie2_3() {
         }
     }
 
-    // wypisz wynik
+    
     cout << bestDec << " " << bestLine << '\n';
     fout << bestDec << " " << bestLine << '\n';
 
@@ -173,23 +172,23 @@ void Zadanie2_4() {
         return;
     }
 
-    string suma = "0";  // suma jako napis dziesiętny
+    string suma = "0";  
 
     string linia;
     while (getline(fin, linia)) {
         if (linia.empty()) continue;
 
-        string dec = "0";  // aktualna liczba w dziesiętnym zapisie jako string
+        string dec = "0";  
         for (char c : linia) {
             int digit;
             if (c == 'o') digit = 0;
             else if (c == '+') digit = 1;
             else /* '*' */ digit = 2;
 
-            mul3_add(dec, digit);  // mnożymy przez 3 i dodajemy digit
+            mul3_add(dec, digit);  
         }
 
-        // dodanie dec do sumy
+        
         string newSum = "";
         int n1 = dec.size();
         int n2 = suma.size();
@@ -209,16 +208,16 @@ void Zadanie2_4() {
         suma = newSum;
     }
 
-    // wypisanie wyniku dziesiętnego
+   
     cout << suma << " ";
 
-    // konwersja sumy na zapis trójkowy z symbolami o,+,*
+    
     string trójkowy = "";
     string tmp = suma;
     if (tmp == "0") trójkowy = "o";
     else {
         while (tmp != "0") {
-            // dzielimy tmp przez 3
+            
             int remainder = 0;
             string next = "";
             
@@ -229,13 +228,13 @@ void Zadanie2_4() {
                 remainder = current % 3;
             }
             
-            // usuń wiodące zera
+           
             while (!next.empty() && next[0] == '0') {
                 next = next.substr(1);
             }
             if (next.empty()) next = "0";
 
-            // reszta to cyfra w systemie trójkowym
+           
             if (remainder == 0) trójkowy = "o" + trójkowy;
             else if (remainder == 1) trójkowy = "+" + trójkowy;
             else trójkowy = "*" + trójkowy;
@@ -256,8 +255,8 @@ void Zadanie2_4() {
 
 int main()
 {
-    // Zadanie2_1();
-    // Zadanie2_2();
-    // Zadanie2_3();
+    Zadanie2_1();
+    Zadanie2_2();
+    Zadanie2_3();
     Zadanie2_4();
 }
